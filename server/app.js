@@ -50,6 +50,13 @@ app.post('/addHero',function(req,res){
 //hopefully sends heroes to the DOM
 app.get('/getHero',function(req,res){
   console.log('get hero route hit');
-  res.sendStatus(200);
+  schema.find({},function(err,results){
+    if(err){
+      console.log(err);
+    }else {
+      console.log('app.gethero working');
+      res.send(results);
+    }
+  });
 });//app.get
 app.use(express.static('public'));
