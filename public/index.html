@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-  <head ng-app = "myApp">
+<html ng-app = "myApp">
+  <head >
     <meta charset="utf-8">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
@@ -8,11 +8,33 @@
   </head>
   <body>
     <h1>hello world</h1>
-    <div ng-controller = "addHeroesController">
 
+    <div ng-controller = "addHeroesController">
+        add heroes here
+        <input placeholder="Alias" type="text" name="name" value="" ng-model = "alias">
+        <input placeholder="First Name" type="text" name="name" value="" ng-model = "first_name">
+        <input placeholder="Last Name" type="text" name="name" value="" ng-model = "last_name">
+        <input placeholder="City" type="text" name="name" value="" ng-model = "city">
+        <input placeholder="Special Power" type="text" name="name" value="" ng-model = "power_name">
+
+
+        <button ng-click = "addHero()" type="button" name="button">Add Hero</button>
     </div>
     <div ng-controller = "viewHeroesController">
-      
+        view heroes here
+
+        <button ng-click = "init()" type="button" name="button">View Heroes</button>
+        <div ng-repeat = "x in toDom">
+
+      <h4>{{x.alias}}</h4>
+      <ul>
+        <li>{{x.first_name}}  {{x.last_name}}</li>
+        <li>{{x.city}}</li>
+        <li>{{x.power_name}}</li>
+
+      </ul>
+    </div>
+
     </div>
   </body>
 </html>
